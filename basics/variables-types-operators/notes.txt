@@ -1,0 +1,138 @@
+
+#  ANOTAÇÕES JAVA - VARIÁVEIS, TIPOS E OPERADORES
+
+##  DECLARAÇÃO DE VARIÁVEIS
+
+### Sintaxe Básica:
+tipo nome = valor;
+
+### Exemplos Práticos:
+String nome = "Maria";
+int idade = 25;
+double altura = 1.65;
+boolean estudante = true;
+char genero = 'F';
+
+### ERROS COMUNS:
+- int numero = 10.5;        // ERRO: double não cabe em int
+- String nome = Maria;      // ERRO: faltam aspas
+- double preco = 25,99;     // ERRO: usar vírgula instead of ponto
+- boolean ativo = "true";   // ERRO: aspas em boolean
+
+## TIPOS DE DADOS
+
+### Tabela de Tipos Primitivos:
+
+| TIPO      | TAMANHO  | VALORES               | EXEMPLO DE USO      |
+|-----------|----------|-----------------------|---------------------|
+| int       | 32 bits  | -2bi a +2bi          | idade, quantidade   |
+| double    | 64 bits  | números decimais      | preços, medidas     |
+| boolean   | 1 bit    | true/false           | flags, condições    |
+| char      | 16 bits  | um caractere          | iniciais, gênero    |
+| long      | 64 bits  | números muito grandes | população mundial   |
+| float     | 32 bits  | decimais simples      | precisa do 'f'      |
+
+### String (NÃO é primitivo):
+- String texto = "Hello World";
+- Sempre com aspas duplas
+
+##  OPERADORES
+
+### Operadores Aritméticos:
+10 + 5   // 15  → Soma
+10 - 5   // 5   → Subtração  
+10 * 5   // 50  → Multiplicação
+10 / 3   // 3   → Divisão INTEIRA (CUIDADO!)
+10.0 / 3 // 3.333 → Divisão DECIMAL
+10 % 3   // 1   → Resto da divisão
+
+### Operadores de Comparação:
+10 > 5   // true  → Maior que
+10 < 5   // false → Menor que
+10 >= 5  // true  → Maior ou igual  
+10 <= 5  // false → Menor ou igual
+10 == 10 // true  → Igual
+10 != 5  // true  → Diferente
+
+### Operadores Lógicos:
+true && false  // false → E (AND)
+true || false  // true  → OU (OR)  
+!true          // false → NÃO (NOT)
+
+## SCANNER - ENTRADA DE DADOS
+
+### Template Básico:
+import java.util.Scanner;
+
+public class MeuPrograma {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Código aqui...
+        
+        scanner.close();
+    }
+}
+
+### Métodos do Scanner:
+String nome = scanner.nextLine();    // Lê texto completo
+int idade = scanner.nextInt();       // Lê número inteiro
+double preco = scanner.nextDouble(); // Lê número decimal
+boolean ativo = scanner.nextBoolean(); // Lê true/false
+char letra = scanner.nextLine().charAt(0); // Lê primeiro caractere
+
+### CUIDADO com Buffer:
+// Ordem CORRETA:
+String nome = scanner.nextLine();
+int idade = scanner.nextInt();
+scanner.nextLine(); // LIMPA BUFFER
+String cidade = scanner.nextLine();
+
+## CONCEITOS AVANÇADOS
+
+### Casting (Conversão de Tipos):
+// Conversão Explícita (você controla):
+double decimal = 9.75;
+int inteiro = (int) decimal;    // = 9 (perde casas decimais)
+
+// Conversão Implícita (Java faz):
+int numero = 100;
+double resultado = numero;      // = 100.0
+
+### Precedência de Operadores:
+10 + 5 * 2     // = 20 (multiplicação primeiro)
+(10 + 5) * 2   // = 30 (parênteses muda ordem)
+
+### Math.abs() - Valor Absoluto:
+Math.abs(-10)  // = 10
+Math.abs(5.5)  // = 5.5
+
+## BOAS PRÁTICAS
+
+### Nomenclatura de Variáveis:
+int idadeUsuario;        // ✅ DESCRITIVO
+int a;                   // ❌ EVITAR
+
+### Organização de Código:
+System.out.println("\n=== SEÇÃO ===");  // ✅ TÍTULOS CLAROS
+String.format("%.2f", preco);          // ✅ 2 CASAS DECIMAIS
+
+### Estrutura de Programa:
+1. Declaração de variáveis
+2. Entrada de dados (Scanner)  
+3. Processamento/cálculos
+4. Saída de resultados
+
+## LEMBRETES IMPORTANTES
+
+### Sempre:
+- Fechar Scanner com .close()
+- Usar nomes descritivos
+- Testar com valores diferentes
+- Fazer commit no GitHub
+
+### Nunca:
+- Esquecer import java.util.Scanner
+- Confundir = com ==
+- Usar vírgula em números decimais
+- Esquecer aspas em Strings
