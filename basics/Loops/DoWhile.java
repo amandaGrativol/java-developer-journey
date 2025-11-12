@@ -5,7 +5,7 @@
  */
 import java.util.Scanner;
 
-public class DoWhileExplained {
+public class DoWhile {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
