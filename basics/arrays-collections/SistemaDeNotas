@@ -1,0 +1,62 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class SistemaDeNotas {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("SISTEMA DE NOTAS COM ARRAY");
+        
+        System.out.print("Quantas notas deseja armazenar? ");
+        int quantidade = scanner.nextInt();
+        
+        
+        double[] notas = new double[quantidade];
+        
+        System.out.println("\nDIGITE AS NOTAS:");
+        for (int i = 0; i < quantidade; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            notas[i] = scanner.nextDouble();
+        }
+        
+        double soma = 0;
+        for (int i = 0; i < quantidade; i++) {
+            soma += notas[i];
+        }
+        
+        double maior = notas[0];
+        double menor = notas[0];
+        
+        for (int i = 1; i < quantidade; i++) {
+            if (notas[i] > maior) {
+                maior = notas[i];
+            }
+            if (notas[i] < menor) {
+                menor = notas[i];
+            }
+        }
+        
+        double media = soma / quantidade;
+        
+        
+        System.out.println("\nRESULTADOS:");
+        System.out.println("Notas: " + Arrays.toString(notas));
+        System.out.println("Total de notas: " + quantidade);
+        System.out.println("Soma: " + soma);
+        System.out.println("Média: " + media);
+        System.out.println("Maior nota: " + maior);
+        System.out.println("Menor nota: " + menor);
+        
+        
+        System.out.println("\nSITUAÇÃO:");
+        if (media >= 7.0) {
+            System.out.println("APROVADO! Média: " + media);
+        } else if (media >= 5.0) {
+            System.out.println("RECUPERAÇÃO! Média: " + media);
+        } else {
+            System.out.println("REPROVADO! Média: " + media);
+        }
+        
+        scanner.close();
+    }
+}
