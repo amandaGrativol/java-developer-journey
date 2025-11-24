@@ -5,7 +5,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ArraysMethodsDemo {
+public class ArraysMethods {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
